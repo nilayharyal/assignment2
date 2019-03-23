@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Add Movies to Database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1><b>Please enter the details below:</b></h1>
+        <form action="part7" method="post">
+            <input type="hidden" name="option" value="NewMovie">
+            <label>Movie Title:</label>
+            <input type="text" name="title" required><br><br>
+            <label>Lead Actor:</label>
+            <input type="text" name="actor" required><br><br>
+            <label>Lead Actress:</label>
+            <input type="text" name="actress" required><br><br>
+            <label>Genre:</label>
+            <input type="text" name="genre" required><br><br>
+            <label>Year:</label>
+            <input type="number" min="1900" max="2099" step="1" name="year" required><br><br>
+        <input type="submit" name="submit">
+        </form>    
+    </body>
+</html>

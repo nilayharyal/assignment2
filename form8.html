@@ -1,0 +1,95 @@
+<html>
+<head>
+    <script type='text/javascript'>
+        function addFields(){
+            // Number of inputs to create
+            var number = document.getElementById("count").value;
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+
+            var element = document.getElementById("ask");
+            element.parentNode.removeChild(element);
+            
+            var element = document.getElementById("count");
+            element.parentNode.removeChild(element);
+
+            var element = document.getElementById("filldetails");
+            element.parentNode.removeChild(element);
+            
+            //create a form
+            var f = document.createElement("form");
+            f.setAttribute('method',"post");
+            f.setAttribute('action',"part8");
+               
+            //create a table
+            var tbl = document.createElement("table");
+            tbl.style.width  = '100px';
+            tbl.style.border = '1px solid black';
+
+            //Create Headers
+                var tr = tbl.insertRow();
+                tr.appendChild(document.createTextNode('ISBN'));
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode('Book Title'));
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode('Authors'));
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode('Price'));
+
+            for (i=0;i<number;i++){
+                var tr = tbl.insertRow();
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "isbn" + (i+1);
+                input.required;
+                tr.appendChild(input);
+                var td = tr.insertCell();
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "title" + (i+1);
+                input.required;
+                td.appendChild(input);
+                var td = tr.insertCell();
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "authors" + (i+1);
+                input.required;
+                td.appendChild(input);
+                var td = tr.insertCell();
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "price" + (i+1);
+                input.required;
+                td.appendChild(input);
+                
+            }
+
+            //create a button
+            var s = document.createElement("input");
+            s.type = "submit";
+            s.value = "Add Books";
+            container.appendChild(tbl);
+            container.appendChild(s);
+;
+            // add all elements to the form
+            f.appendChild(container);
+            //f.appendChild(c);
+            //f.appendChild(s);
+
+            //add form to body
+            document.getElementsByTagName('body')[0].appendChild(f);
+
+
+        }
+    </script>
+</head>
+<body>
+    <br><br><label id="ask">How many Books do you want to add?</label><input type="text" id="count" name="count" value=""><br><br>
+    <input type="submit" id="filldetails" onclick="addFields()" value="Submit Query">
+    <div id="container"/>
+</body>
+</html>
